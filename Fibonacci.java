@@ -21,23 +21,25 @@ public class Fibonacci extends Practice1Test
 			return n;
 		}
 		else {
-			int f = 1;
+			int f = 0;
+			int j = 1;
+			int g = 1;
 			for(int i = 2; i <= n; i++)
-				f = iterativeFibonacci(i-1) + iterativeFibonacci(i-2); 
-			return f;
+			{
+				j = f + g;
+				f = g;
+				g = j;
+			}	
+			return g;
 		}
 	}
 
 	public int recursiveFibonacci(int n)
 	{
 		if(n < 2)
-			return n;	
-		return iterativeFibonacci(n-1) + iterativeFibonacci(n-2); // ineffiecient because it creates a tree down and duplicates many.
+			return n;	// base case for recursion
+		return recursiveFibonacci(n-1) + recursiveFibonacci(n-2); // ineffiecient because it creates a tree down and duplicates many.
 	}
-
-
-	
 }
-
 
 // 0,1,1,2,3,5,8,13,21,34,55...
