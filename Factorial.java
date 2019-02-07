@@ -24,7 +24,9 @@ public class Factorial extends Practice1Test
 
 	public int recursiveFactorial(int n)
 	{
-		return n * iterativeFactorial(n-1);
+		if(n < 2)
+			return n;// base case for recursion again
+		return n * recursiveFactorial(n-1);
 	}
 }
 //recursion vs iteration... --> choose iteration!
